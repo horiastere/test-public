@@ -1,0 +1,22 @@
+name: Sync to public
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: olivr/copybara-action@042b4395839f3a374a6455b541e29e40c949d717 # v1.2.5
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          access_token: ${{ secrets.GH_TOKEN }}
+          sot_repo: horiastere/test-private
+          destination_repo: horiastere/test-public
+          destination_branch: main
