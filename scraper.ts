@@ -11,7 +11,8 @@ const redditUrls = [
   'PanicAttack',
   'askmanagers',
   'AskUK',
-  'DecidingToBeBetter'
+  'DecidingToBeBetter',
+  'Romania'
 ];
 
 type Item = {
